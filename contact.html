@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fowler - Contact</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(to right, forestgreen, seagreen);">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Angel Fowler</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
+                    <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        <h1 class="mb-4 text-center">Get in Touch 📞</h1>
+
+        <div class="row g-4">
+            <div class="col-md-6">
+                <section>
+                    <h2>Contact Form</h2>
+                    <form action="#" method="POST">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message:</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </section>
+            </div>
+
+            <div class="col-md-6">
+                <section>
+                    <h2>Direct Contact & Socials</h2>
+                    <p><strong>Email:</strong> <a href="mailto:turtlesaveg1739@gmail.com?subject=Portfolio Inquiry">turtlesaveg1739@gmail.com</a></p>
+                    <button id="getLocation" class="btn">Get Location</button>
+                    <p id="result" class="mt-2"></p>
+                    <script>
+                        const getLocationButton = document.getElementById('getLocation');
+                        const resultElement = document.getElementById('result');
+
+                        getLocationButton.addEventListener('click', () => {
+                            if ("geolocation" in navigator) {
+                                navigator.geolocation.getCurrentPosition((position) => {
+                                    const latitude = position.coords.latitude;
+                                    const longitude = position.coords.longitude;
+                                    resultElement.textContent = `Latitude: ${latitude}, Longitude: ${longitude}`;
+                                });
+                            } else {
+                                resultElement.textContent = "Geolocation is not supported by your browser.";
+                            }
+                        });
+                    </script>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-light text-center py-3">
+        <p>I look forward to hearing from you!</p>
+    </footer>
+
+    <script src="bootstrap.bundle.js"></script>
+</body>
+</html>
